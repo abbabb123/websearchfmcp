@@ -1,0 +1,59 @@
+{
+  "addToCommand": true,
+  "addToContextMenu": true,
+  "createInstanceNearExistingOnes": true,
+  "errorNoticeTimeout": 0,
+  "exposeInternalModules": true,
+  "focusOnNewInstance": true,
+  "hideStatusBar": "focused",
+  "interceptLogging": true,
+  "language": "",
+  "newInstanceBehavior": "newHorizontalSplit",
+  "noticeTimeout": 5,
+  "openChangelogOnUpdate": true,
+  "pinNewInstance": true,
+  "preferredRenderer": "webgl",
+  "profiles": {
+    "darwinIntegratedDefault": {
+      "args": [
+        "-c",
+        "/Users/jan/.opencode/bin/opencode '/Users/jan/Downloads/ai/skills/websearchfmcp'"
+      ],
+      "executable": "/bin/zsh",
+      "followTheme": true,
+      "name": "",
+      "platforms": {
+        "darwin": true
+      },
+      "pythonExecutable": "python3",
+      "restoreHistory": true,
+      "rightClickAction": "copyPaste",
+      "successExitCodes": [
+        "0",
+        "SIGINT",
+        "SIGTERM"
+      ],
+      "terminalOptions": {
+        "fontSize": 10,
+        "documentOverride": null
+      },
+      "type": "integrated",
+      "useWin32Conhost": false
+    },
+    "developerConsole": {
+      "followTheme": true,
+      "name": "",
+      "restoreHistory": false,
+      "rightClickAction": "copyPaste",
+      "successExitCodes": [
+        "0",
+        "SIGINT",
+        "SIGTERM"
+      ],
+      "terminalOptions": {
+        "documentOverride": null
+      },
+      "type": "developerConsole"
+    }
+  }
+}
