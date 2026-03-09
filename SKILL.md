@@ -1,5 +1,5 @@
 ---
-name: Web搜索工具
+name: websearchfmcp
 description: 需要搜索网络资料时优先使用此skill,使用（exa、grep-app、Context7、MiniMax）进行网络搜索、代码搜索、文档查询和GitHub查询。通过mcporter命令调用。适用于：搜索,学习,研究、查找代码示例、GitHub代码模式、官方文档查询、图片分析。
 metadata:
   openclaw:

@@ -12,13 +12,12 @@
 
 ## 必要配置
 
-### 1. 创建mcporter配置文件
+### 1. mcporter 配置文件
 
-在 `<workspace>/config/` 目录下创建 `mcporter.json`：
-
-```bash
-mkdir -p <workspace>/config
-```
+**配置文件位置**：
+- OpenClaw：`<workspace>/config/mcporter.json`
+- OpenCode 本地：`~/.mcporter/mcporter.json`
+- OpenCode sg1：`/root/.mcporter/mcporter.json`
 
 ### 2. 添加MCP服务器配置
 
@@ -47,16 +46,39 @@ mkdir -p <workspace>/config
 ```
 
 **注意**：
-- context7可以免费使用，无需API Key
+- context7 可以免费使用，无需 API Key
 - MiniMax 需要配置 API Key（见 minimax-mcp Skill）
-- 远程服务器测试时需要设置 PATH：`export PATH=$HOME/.local/bin:$PATH`
+- **Linux 服务器**需要软链接 uvx：`ln -s /root/.local/bin/uvx /usr/local/bin/uvx`
 
 ### 3. 验证安装
 
 ```bash
 mcporter list
-# 应该显示3个健康的服务器
+# 应该显示健康的服务器
 ```
+
+---
+
+## OpenCode 环境配置
+
+### 本地 Mac
+
+配置文件：`~/.mcporter/mcporter.json`
+
+### sg1 服务器
+
+1. 安装 uvx：
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. 添加 PATH 到 `~/.bashrc`：
+```bash
+echo 'export PATH="/root/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+3. 配置文件：`/root/.mcporter/mcporter.json`
 
 ## 使用方法
 
