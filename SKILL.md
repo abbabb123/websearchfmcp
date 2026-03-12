@@ -1,6 +1,6 @@
 ---
 name: websearchfmcp
-description: 需要搜索网络资料时优先使用此skill,使用（exa、grep-app、Context7、MiniMax）进行网络搜索、代码搜索、文档查询和GitHub查询。通过mcporter命令调用。适用于：搜索,学习,研究、查找代码示例、GitHub代码模式、官方文档查询、图片分析。
+description: 需要搜索网络资料时优先使用此skill,使用（exa、grep-app、Context7、MiniMax）进行网络搜索、代码搜索、文档查询和GitHub查询。通过mcporter命令调用。适用于：搜索,学习,研究、查找代码示例、GitHub代码模式、官方文档查询。
 metadata:
   openclaw:
     requires:
@@ -18,7 +18,6 @@ metadata:
 mcporter call <server>.<tool> query="..."
 ```
 
-## 可用的MCP服务器
 
 ### 1. exa - 网络和代码搜索
 
@@ -85,16 +84,14 @@ mcporter call 'context7.query-docs(libraryId: "/tiangolo/fastapi", query: "路�
 - ✅ 减少代码幻觉
 - ✅ 包含真实代码示例
 
-### 4. MiniMax - 网络搜索和图片分析
+### 4. MiniMax - 网络搜索
 
-适用于：轻量级网络搜索、AI图片分析。
+适用于：轻量级网络搜索。
 
 ```bash
 # 网络搜索
 mcporter call 'MiniMax.web_search(query: "搜索词", numResults: 5)'
 
-# 图片分析（需要配置API Key）
-mcporter call 'MiniMax.understand_image(imageUrl: "https://example.com/image.jpg", prompt: "描述这张图片")'
 ```
 
 ## 示例
@@ -114,10 +111,6 @@ mcporter call 'exa.get_code_context_exa(query: "Python ffmpeg audio generation",
 mcporter call 'grep-app.grep_query(query: "async def", language: "Python", maxResults: 10)'
 ```
 
-### 分析图片
-```bash
-mcporter call 'MiniMax.understand_image(imageUrl: "https://example.com/screenshot.png", prompt: "这个页面在显示什么")'
-```
 
 ### 搜索图片（通用方法）
 
@@ -151,7 +144,6 @@ mcporter list MiniMax --schema  # 显示MiniMax的工具
 - exa：无需API密钥，返回URL和内容
 - grep-app：GitHub代码搜索，可能有速率限制
 - Context7：**无需API Key**，必须先调用 `resolve-library-id` 获取库ID
-- MiniMax：网络搜索无需密钥，图片分析需要API Key（见minimax-mcp Skill）
 
 ## 使用场景
 
@@ -162,7 +154,6 @@ mcporter list MiniMax --schema  # 显示MiniMax的工具
 | 公司信息 | `exa.company_research_exa` |
 | GitHub代码搜索 | `grep-app.grep_query` |
 | 官方文档查询 | `context7.resolve-library-id` → `context7.query-docs` |
-| 图片分析（AI识别） | `MiniMax.understand_image` |
 | 图片搜索（提取URL） | 任意MCP搜索 → 从返回文本字段提取URL → curl下载 |
 
 ## 技巧
@@ -172,7 +163,6 @@ mcporter list MiniMax --schema  # 显示MiniMax的工具
 - 对于代码搜索，指定`language`参数
 - 对于仓库特定搜索，使用`repo: "owner/repo"`格式
 - **Context7 必须先解析库ID**，再查询文档
-- 图片分析使用MiniMax需要单独配置（见minimax-mcp Skill）
 
 ## 要求
 
@@ -182,6 +172,3 @@ mcporter list MiniMax --schema  # 显示MiniMax的工具
 - 建议的步骤:先去相关新闻网站或者社交媒体搜索,找出热门的"对象",然后再去对应的渠道搜索他们的具体内容
 - 最终返回给用户的结果一定要确保真实性,时效性,不能自己乱编造,要标注来源和发布时间
 
-## 相关Skill
-
-- **minimax-mcp** - MiniMax图片识别专用Skill（包含详细配置说明）
